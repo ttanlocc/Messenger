@@ -59,8 +59,8 @@
                 <TextBox x:Name="uiEditBox" Grid.Row="1" Margin="10,0"
                          TextWrapping="WrapWithOverflow" AllowDrop="True"
                          Text="{Binding Source={x:Static module:ProfileModule.GroupLabels}, Mode=OneTime}"
-                         Tag="请输入群组标签 多个标签用空格分隔" />
-                <Button Tag="apply" Grid.Row="3" Margin="10,0">应用</Button>
+                         Tag="Please enter group tags Multiple tags are separated by spaces" />
+                <Button Tag="apply" Grid.Row="3" Margin="10,0">Execute</Button>
             </Grid>
         </Grid>
     </Grid>

@@ -40,7 +40,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Margin="10" FontSize="28"
-                           Foreground="#FFC0C0C0" FontWeight="Light" Text="User List">
+                           Foreground="#FFC0C0C0" FontWeight="Light" Text="Document">
                 </TextBlock>
                 <ScrollViewer Grid.Row="1" Template="{DynamicResource ThinScrollViewer}" Focusable="False">
                     <StackPanel>

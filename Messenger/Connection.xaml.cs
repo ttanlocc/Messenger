@@ -113,7 +113,7 @@ namespace Messenger
                 catch (Exception ex)
                 {
                     Log.Error(ex);
-                    Entrance.ShowError("连接失败", ex);
+                    Entrance.ShowError("Connection failed", ex);
                 }
                 uiConnectButton.IsEnabled = true;
             }
