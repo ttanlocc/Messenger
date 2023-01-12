@@ -291,7 +291,7 @@
                             </Style>
                         </Path.Style>
                     </Path>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center">文件</TextBlock>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center">Document</TextBlock>
                 </Grid>
             </RadioButton>
             <RadioButton Tag="setting" Grid.Row="7">
@@ -309,7 +309,7 @@
                             </GeometryGroup>
                         </Path.Data>
                     </Path>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center">选项</TextBlock>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center">Option</TextBlock>
                 </Grid>
             </RadioButton>
             <RadioButton Tag="self" Grid.Row="8">

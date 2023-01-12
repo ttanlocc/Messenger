@@ -59,11 +59,11 @@
                     <Setter TargetName="uiTogglePanel" Property="Visibility" Value="Collapsed" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Path=IsBatch}" Value="True">
-                    <Setter TargetName="uiPrefixText" Property="Text" Value="[文件夹]" />
+                    <Setter TargetName="uiPrefixText" Property="Text" Value="[Folder]" />
                     <Setter TargetName="uiLengthText" Property="Visibility" Value="Collapsed" />
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Path=IsBatch}" Value="False">
-                    <Setter TargetName="uiPrefixText" Property="Text" Value="[文件]" />
+                    <Setter TargetName="uiPrefixText" Property="Text" Value="[Document]" />
                 </DataTrigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>

@@ -57,7 +57,7 @@ namespace Messenger
                     return;
                 win.uiHeadText.Text = title;
 
-                win.uiContentText.Text = content?.ToString() ?? "未提供信息";
+                win.uiContentText.Text = content?.ToString() ?? "No infomation";
                 win.uiMessagePanel.Visibility = Visibility.Visible;
             });
         }

@@ -10,11 +10,11 @@ namespace Messenger
 {
     internal static class Commands
     {
-        public static RoutedUICommand CopyText { get; } = new RoutedUICommand() { Text = "复制消息内容" };
+        public static RoutedUICommand CopyText { get; } = new RoutedUICommand() { Text = "Copy message" };
 
-        public static RoutedUICommand Remove { get; } = new RoutedUICommand() { Text = "移除这条消息" };
+        public static RoutedUICommand Remove { get; } = new RoutedUICommand() { Text = "Delete this message" };
 
-        public static RoutedUICommand ViewImage { get; } = new RoutedUICommand() { Text = "在图片查看器中查看" };
+        public static RoutedUICommand ViewImage { get; } = new RoutedUICommand() { Text = "See this picture with Photo Viewer" };
 
         static Commands()
         {

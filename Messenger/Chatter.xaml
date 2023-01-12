@@ -221,7 +221,7 @@
                 <Control Width="5" Focusable="False" />
                 <Button Tag="image" VerticalAlignment="Center" Content="{DynamicResource PathImage}" ToolTip="发送图片" Padding="0" Background="Transparent" BorderThickness="0" />
                 <Control Width="15" Focusable="False" />
-                <Button Tag="text" Content="{DynamicResource PathArrow}" Style="{DynamicResource GeometryButtonStyle}" ToolTip="发送" />
+                <Button Tag="text" Content="{DynamicResource PathArrow}" Style="{DynamicResource GeometryButtonStyle}" ToolTip="Send" />
             </StackPanel>
         </Grid>
     </Grid>

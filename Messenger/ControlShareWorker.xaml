@@ -57,7 +57,7 @@
                 </DataTrigger>
 
                 <DataTrigger Binding="{Binding Path=IsBatch}" Value="False">
-                    <Setter TargetName="uiPrefixText" Property="Text" Value="[文件]" />
+                    <Setter TargetName="uiPrefixText" Property="Text" Value="[Document]" />
                     <Setter TargetName="uiInfoText" Property="Text">
                         <Setter.Value>
                             <MultiBinding StringFormat="用户: {0}, {1} / {2}, {3:0.00}%, {4}/s, 状态: {5}, 剩余: {6:c}">
@@ -73,7 +73,7 @@
                     </Setter>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Path=IsBatch}" Value="True">
-                    <Setter TargetName="uiPrefixText" Property="Text" Value="[文件夹]" />
+                    <Setter TargetName="uiPrefixText" Property="Text" Value="[Folder]" />
                     <Setter TargetName="uiInfoText" Property="Text">
                         <Setter.Value>
                             <MultiBinding StringFormat="用户: {0}, {1}, {2}/s, 状态: {3}">
