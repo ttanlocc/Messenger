@@ -39,9 +39,9 @@ namespace Messenger.Controllers
             var typ = Data["type"].As<string>();
             var par = Data["parameter"].As<string>();
             var str = typ == "share.file"
-                ? $"已成功接收文件 {par}"
+                ? $"File successfully received {par}"
                 : typ == "share.dir"
-                    ? $"已成功接收文件夹 {par}"
+                    ? $"Folder successfully received {par}"
                     : null;
             if (str == null)
                 Log.Info($"Unknown notice type: {typ}, parameter: {par}");

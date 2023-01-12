@@ -51,7 +51,7 @@
                                  Foreground="#C0C0C0" Visibility="Collapsed">
                             <TextBox.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Command="ApplicationCommands.Copy" Header="复制选定内容" />
+                                    <MenuItem Command="ApplicationCommands.Copy" Header="Copy selected" />
                                     <MenuItem Command="{x:Static local:Commands.CopyText}" />
                                     <MenuItem Command="{x:Static local:Commands.Remove}" />
                                 </ContextMenu>

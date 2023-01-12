@@ -51,7 +51,7 @@ namespace Messenger.Modules
                 var obj = args.Object;
                 if (obj == null || obj is OperationCanceledException)
                     return;
-                Entrance.ShowError("连接中断", obj);
+                Entrance.ShowError("Connection lost", obj);
             }
 
             clt.Received += _OnReceived;

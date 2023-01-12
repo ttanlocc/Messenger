@@ -169,7 +169,7 @@ namespace Messenger.Modules
         /// <summary>
         /// 检查文件名在指定目录下是否可用 如果冲突则添加随机后缀并重试 再次失败则抛出异常
         /// </summary>
-        /// <param name="name">文件名</param>
+        /// <param name="name">File name</param>
         /// <exception cref="IOException"></exception>
         public static FileInfo AvailableFile(string name)
         {
