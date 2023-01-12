@@ -34,7 +34,7 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Button Tag="edit" Grid.Row="0" Width="32" Height="32"
-                    Background="Transparent" BorderThickness="0" ToolTip="编辑群组标签"
+                    Background="Transparent" BorderThickness="0" ToolTip="Edit group label"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <Path Grid.Column="0" Stroke="#FFE0E0E0" Width="24" Height="24">

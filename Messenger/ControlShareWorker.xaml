@@ -32,10 +32,10 @@
                                 Orientation="Horizontal" VerticalAlignment="Center"
                                 Button.Click ="_Click">
                         <!--控制按钮-->
-                        <Button Name="PlayButton" Margin="8,0" Tag="play" ToolTip="启动传输"
+                        <Button Name="PlayButton" Margin="8,0" Tag="play" ToolTip="Start transfer"
                                 Content="{DynamicResource PathLitePlay}"
                                 Background="Transparent" BorderThickness="0" Padding="0" />
-                        <Button Name="StopButton" Tag="stop" ToolTip="关闭传输"
+                        <Button Name="StopButton" Tag="stop" ToolTip="Close transmission"
                                 Content="{DynamicResource PathLiteStop}"
                                 Background="Transparent" BorderThickness="0" Padding="0" />
                     </StackPanel>

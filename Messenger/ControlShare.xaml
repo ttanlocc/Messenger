@@ -38,7 +38,7 @@
                                 Orientation="Horizontal" VerticalAlignment="Center"
                                 Button.Click ="_Click">
                         <!--控制按钮-->
-                        <Button Tag="stop" ToolTip="关闭传输"
+                        <Button Tag="stop" ToolTip="Close transmission"
                             Content="{DynamicResource PathLiteStop}"
                             Background="Transparent" BorderThickness="0" Padding="0" />
                     </StackPanel>
