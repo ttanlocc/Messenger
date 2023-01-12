@@ -110,7 +110,7 @@
                                 </GeometryGroup>
                             </Path.Data>
                         </Path>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center">菜单</TextBlock>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center">Messenger</TextBlock>
                     </Grid>
                     <RadioButton.Triggers>
                         <EventTrigger RoutedEvent="RadioButton.Checked">
@@ -178,7 +178,7 @@
                             </Style>
                         </Path.Style>
                     </Path>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center">历史</TextBlock>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center">Recent</TextBlock>
                 </Grid>
             </RadioButton>
             <RadioButton Tag="user" Grid.Row="2" IsChecked="True">
@@ -214,7 +214,7 @@
                             </Style>
                         </Path.Style>
                     </Path>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center">用户</TextBlock>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center">Client</TextBlock>
                 </Grid>
             </RadioButton>
             <RadioButton Tag="group" Grid.Row="3">
@@ -252,7 +252,7 @@
                             </Style>
                         </Path.Style>
                     </Path>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center">群组</TextBlock>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center">Groups</TextBlock>
                 </Grid>
             </RadioButton>
             <Border x:Name="border" Grid.Row="5" Margin="10,0" Background="#404040" Height="1" Opacity="0" SnapsToDevicePixels="True" />
