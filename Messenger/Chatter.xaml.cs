@@ -59,9 +59,7 @@ namespace Messenger
             uiMessageBox.ScrollIntoLastEx();
         }
 
-        /// <summary>
-        /// 拦截消息通知
-        /// </summary>
+ 
         private void _HistoryReceiving(object sender, LinkEventArgs<Packet> e)
         {
             if (e.Object.Index != _profile.Id)
@@ -108,7 +106,7 @@ namespace Messenger
 
         private void _PushImage()
         {
-            var ofd = new OpenFileDialog() { Filter = "位图文件|*.bmp;*.png;*.jpg" };
+            var ofd = new OpenFileDialog() { Filter = "Image file|*.bmp;*.png;*.jpg" };
             if (ofd.ShowDialog() != true)
                 return;
             try
@@ -120,7 +118,7 @@ namespace Messenger
             catch (Exception ex)
             {
                 Log.Error(ex);
-                Entrance.ShowError("发送图片失败", ex);
+                Entrance.ShowError("Failed to send picture", ex);
             }
         }
 

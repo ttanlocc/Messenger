@@ -45,14 +45,8 @@ namespace Mikodev.Network
 
         public bool IsRunning { get { lock (_locker) { return _started == true && _disposed == false; } } }
 
-        /// <summary>
-        /// 本机端点 (不会返回 null)
-        /// </summary>
         public IPEndPoint InnerEndPoint => _innerEndpoint;
 
-        /// <summary>
-        /// 服务器报告的相对于服务器的外部端点 (不会返回 null)
-        /// </summary>
         public IPEndPoint OuterEndPoint => _outerEndpoint;
 
         public event EventHandler<LinkEventArgs<LinkPacket>> Received = null;

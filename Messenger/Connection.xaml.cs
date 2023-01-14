@@ -103,7 +103,6 @@ namespace Messenger
                         hst = Dns.GetHostEntry(hos).AddressList.First(r => r.AddressFamily == AddressFamily.InterNetwork);
                     var iep = new IPEndPoint(hst, pot);
 
-                    // 放弃等待该方法返回的任务
                     _ = await LinkModule.Start(uid, iep);
                     HostModule.Name = hos;
                     HostModule.Port = pot;
@@ -113,7 +112,7 @@ namespace Messenger
                 catch (Exception ex)
                 {
                     Log.Error(ex);
-                    Entrance.ShowError("连接失败", ex);
+                    Entrance.ShowError("Connection failed", ex);
                 }
                 uiConnectButton.IsEnabled = true;
             }

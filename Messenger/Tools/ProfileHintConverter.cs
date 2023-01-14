@@ -4,9 +4,6 @@ using System.Windows.Data;
 
 namespace Messenger.Tools
 {
-    /// <summary>
-    /// 当未读消息过多时 标注 "+" 号
-    /// </summary>
     internal class ProfileHintConverter : IValueConverter
     {
         public int MaxShowValue { get; set; } = 9;

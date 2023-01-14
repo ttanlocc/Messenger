@@ -172,9 +172,9 @@
                     </Border.Effect>
                 </Border>
                 <TextBlock x:Name="uiHeadText" Grid.Row="0" Margin="10" Foreground="#FFA0A0A0" FontSize="24" />
-                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#FF808080" Text="异常信息" />
+                <TextBlock Grid.Row="1" Margin="10,0" Foreground="#FF808080" Text="Details" />
                 <TextBox x:Name="uiContentText" Grid.Row="3" Margin="5,0" FontSize="12" Foreground="#FF808080" Background="Transparent" BorderThickness="0" IsReadOnly="True" />
-                <Button Tag="confirm" Grid.Row="4" Margin="10" Width="80" HorizontalAlignment="Right" Click="_Click" Content="确定" />
+                <Button Tag="confirm" Grid.Row="4" Margin="10" Width="80" HorizontalAlignment="Right" Click="_Click" Content="Sure" />
             </Grid>
         </Grid>
     </Grid>

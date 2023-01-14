@@ -34,7 +34,7 @@
                     VerticalAlignment="Center"
                     Padding="0"
                     Content="{DynamicResource PathRemove}"
-                    ToolTip="清理列表">
+                    ToolTip="Cleanup list">
             </Button>
         </Grid>
     </Grid>

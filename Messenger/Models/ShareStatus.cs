@@ -1,8 +1,5 @@
 ﻿namespace Messenger.Models
 {
-    /// <summary>
-    /// 传输状态
-    /// </summary>
     public enum ShareStatus : int
     {
         默认 = 0,

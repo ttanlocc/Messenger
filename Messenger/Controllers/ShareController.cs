@@ -4,9 +4,6 @@ using Mikodev.Network;
 
 namespace Messenger.Controllers
 {
-    /// <summary>
-    /// 处理共享信息
-    /// </summary>
     public class ShareController : LinkPacket
     {
         [Route("share.info")]

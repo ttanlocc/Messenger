@@ -156,9 +156,6 @@ namespace Mikodev.Network
             throw new LinkException(error);
         }
 
-        /// <summary>
-        /// 显式放弃等待该任务
-        /// </summary>
         public static void Ignore<T>(this T task) where T : Task
         {
             return;

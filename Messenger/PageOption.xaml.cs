@@ -4,9 +4,6 @@ using System.Windows.Controls;
 
 namespace Messenger
 {
-    /// <summary>
-    /// PageOption.xaml 的交互逻辑
-    /// </summary>
     public partial class PageOption : Page
     {
         public PageOption()

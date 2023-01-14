@@ -51,9 +51,9 @@
         <Setter Property="ContextMenu">
             <Setter.Value>
                 <ContextMenu>
-                    <MenuItem Command="ApplicationCommands.Copy" Header="复制" />
-                    <MenuItem Command="ApplicationCommands.Cut" Header="剪切" />
-                    <MenuItem Command="ApplicationCommands.Paste" Header="粘贴" />
+                    <MenuItem Command="ApplicationCommands.Copy" Header="Copy" />
+                    <MenuItem Command="ApplicationCommands.Cut" Header="Cut" />
+                    <MenuItem Command="ApplicationCommands.Paste" Header="Patse" />
                 </ContextMenu>
             </Setter.Value>
         </Setter>

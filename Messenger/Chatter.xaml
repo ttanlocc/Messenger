@@ -15,7 +15,6 @@
         <tool:StringEmptyConverter x:Key="StringEmptyConverter" />
         <tool:ObjectTypeConverter x:Key="ObjectTypeConverter" />
 
-        <!--消息模板-->
         <ControlTemplate x:Key="MessageTemplate">
             <Grid Margin="0,6" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollContentPresenter}, Path=ActualWidth}">
                 <Grid.ColumnDefinitions>
@@ -51,7 +50,7 @@
                                  Foreground="#C0C0C0" Visibility="Collapsed">
                             <TextBox.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Command="ApplicationCommands.Copy" Header="复制选定内容" />
+                                    <MenuItem Command="ApplicationCommands.Copy" Header="Copy selected" />
                                     <MenuItem Command="{x:Static local:Commands.CopyText}" />
                                     <MenuItem Command="{x:Static local:Commands.Remove}" />
                                 </ContextMenu>

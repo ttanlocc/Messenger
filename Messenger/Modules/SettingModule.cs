@@ -3,9 +3,6 @@ using System.ComponentModel;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 管理用户界面设置
-    /// </summary>
     internal class SettingModule : INotifyPropertyChanging, INotifyPropertyChanged
     {
         private const string _KeyCtrlEnter = "hotkey-control-enter";

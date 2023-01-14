@@ -21,9 +21,6 @@ namespace Messenger.Models
             public double Speed = 0;
         }
 
-        /// <summary>
-        /// 历史记录上限
-        /// </summary>
         private const int _tickLimit = 16;
 
         private const int _delay = 200;
@@ -40,10 +37,6 @@ namespace Messenger.Models
                 await Task.Delay(_delay);
             }
         });
-
-        /// <summary>
-        /// 注册以便实时计算传输进度 (当 <see cref="IsFinal"/> 为真时自动取消注册)
-        /// </summary>
         protected void Register() => s_action += _Refresh;
 
         #region PropertyChange
@@ -119,7 +112,7 @@ namespace Messenger.Models
             var fin = IsFinal;
 
             var avg = _AverageSpeed();
-            _speed = avg * 1000; // 毫秒 -> 秒
+            _speed = avg * 1000; 
             _progress = (Length > 0)
                 ? (100.0 * Position / Length)
                 : (fin ? 100 : 0);
@@ -129,7 +122,6 @@ namespace Messenger.Models
                 var spa = (avg > 0 && Position > 0)
                     ? TimeSpan.FromMilliseconds((Length - Position) / avg)
                     : TimeSpan.Zero;
-                // 移除毫秒部分
                 _remain = new TimeSpan(spa.Days, spa.Hours, spa.Minutes, spa.Seconds);
                 OnPropertyChanged(nameof(Remain));
             }
@@ -139,7 +131,6 @@ namespace Messenger.Models
             OnPropertyChanged(nameof(Position));
             OnPropertyChanged(nameof(Progress));
 
-            // 确保 IsFinal 为真后再计算一次
             if (fin == true)
             {
                 s_action -= _Refresh;
@@ -159,7 +150,6 @@ namespace Messenger.Models
                 cur.Speed = 1.0 * pos / sub;
             }
             _ticks.Add(cur);
-            // 计算最近几条记录的平均速度
             if (_ticks.Count > _tickLimit)
                 _ticks.RemoveRange(0, _ticks.Count - _tickLimit);
             return _ticks.Average(r => r.Speed);

@@ -11,9 +11,6 @@ using System.Text;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 负责管理图片缓存 (被动初始化)
-    /// </summary>
     internal class CacheModule
     {
         private const string _Directory = "Cache";
@@ -22,19 +19,10 @@ namespace Messenger.Modules
 
         private const string _KeyCache = "cache-path";
 
-        /// <summary>
-        /// 图片文件大小限制
-        /// </summary>
         private const int _LengthLimit = 4 * 1024 * 1024;
 
-        /// <summary>
-        /// 图像最大分辨率
-        /// </summary>
         private const int _PixelLimit = 384;
 
-        /// <summary>
-        /// 图像 DPI
-        /// </summary>
         private const float _Density = 96;
 
         private string _dir = _Directory;
@@ -56,9 +44,6 @@ namespace Messenger.Modules
             }
         }
 
-        /// <summary>
-        /// 计算缓存的 SHA256 值
-        /// </summary>
         public static string GetSHA256(byte[] buffer)
         {
             using (var sha = new SHA256Managed())
@@ -69,9 +54,6 @@ namespace Messenger.Modules
             }
         }
 
-        /// <summary>
-        /// 从本地缓存查找指定 SHA256 值的图像
-        /// </summary>
         public static string GetPath(string sha)
         {
             var dir = new DirectoryInfo(s_ins._dir);
@@ -93,10 +75,6 @@ namespace Messenger.Modules
             return null;
         }
 
-        /// <summary>
-        /// 写入本地缓存, 并将 SHA256 值作为文件名
-        /// </summary>
-        /// <param name="fullPath">为真时返回完整路径, 否则返回 SHA256 值</param>
         public static string SetBuffer(byte[] buffer, bool fullPath, bool nothrow = true)
         {
             if (buffer.Length > Links.BufferLengthLimit)
@@ -135,9 +113,6 @@ namespace Messenger.Modules
             return fullPath ? pth : sha;
         }
 
-        /// <summary>
-        /// 从图像中裁剪出正方形区域 (用于个人头像)
-        /// </summary>
         public static byte[] ImageSquare(string filepath)
         {
             var inf = new FileInfo(filepath);
@@ -156,9 +131,6 @@ namespace Messenger.Modules
             return _LoadImage(bmp, src, dst, ImageFormat.Jpeg);
         }
 
-        /// <summary>
-        /// 按比例缩放图像 (用于聊天)
-        /// </summary>
         public static byte[] ImageZoom(string filepath)
         {
             var inf = new FileInfo(filepath);

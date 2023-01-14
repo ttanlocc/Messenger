@@ -24,9 +24,6 @@ namespace Messenger.Models
 
         internal readonly bool _batch = false;
 
-        /// <summary>
-        /// 原始文件名
-        /// </summary>
         internal readonly string _origin;
 
         internal bool _started = false;

@@ -11,16 +11,10 @@ using System.Windows;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 管理用户聊天记录
-    /// </summary>
     internal class HistoryModule
     {
         private const int _Max = 64;
 
-        /// <summary>
-        /// 默认数据库路径
-        /// </summary>
         private const string _Path = nameof(Messenger) + ".db";
 
         private const string _CreateTable = "create table if not exists [message](" +
@@ -32,9 +26,6 @@ namespace Messenger.Modules
             "[path] text not null, " +
             "[text] text)";
 
-        /// <summary>
-        /// 数据库实例 (为 null 说明出错, 此时相当于 "阅后即焚")
-        /// </summary>
         private SQLiteConnection _con = null;
 
         private EventHandler<LinkEventArgs<Packet>> _rec = null;
@@ -43,14 +34,8 @@ namespace Messenger.Modules
 
         private static readonly HistoryModule s_ins = new HistoryModule();
 
-        /// <summary>
-        /// 消息接收事件
-        /// </summary>
         public static event EventHandler<LinkEventArgs<Packet>> Receive { add => s_ins._rec += value; remove => s_ins._rec -= value; }
 
-        /// <summary>
-        /// 消息接收事件处理后
-        /// </summary>
         public static event EventHandler<LinkEventArgs<Packet>> Handled { add => s_ins._han += value; remove => s_ins._han -= value; }
 
         private static void _ValidatePacket(string path, ref object value)
@@ -83,9 +68,6 @@ namespace Messenger.Modules
             return pkt;
         }
 
-        /// <summary>
-        /// 触发事件
-        /// </summary>
         private static void _OnReceive(Packet pkt)
         {
             var arg = new LinkEventArgs<Packet>(pkt);
@@ -101,9 +83,6 @@ namespace Messenger.Modules
             });
         }
 
-        /// <summary>
-        /// 向数据库写入消息记录
-        /// </summary>
         private static void _Insert(Packet pkt)
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -146,9 +125,6 @@ namespace Messenger.Modules
             });
         }
 
-        /// <summary>
-        /// 依据编号查询 并返回最近的 N 条消息记录 (返回值不会为 null)
-        /// </summary>
         public static BindingList<Packet> Query(int gid, int max = _Max)
         {
             var lst = new BindingList<Packet>();
@@ -195,9 +171,6 @@ namespace Messenger.Modules
             return lst;
         }
 
-        /// <summary>
-        /// 初始化数据库 (非线程安全)
-        /// </summary>
         [Loader(1, LoaderFlags.OnLoad)]
         public static void Load()
         {
@@ -210,7 +183,6 @@ namespace Messenger.Modules
                 con.Open();
                 cmd = new SQLiteCommand(_CreateTable, con);
                 _ = cmd.ExecuteNonQuery();
-                // 确保连接有效
                 s_ins._con = con;
             }
             catch (Exception ex)
@@ -256,9 +228,6 @@ namespace Messenger.Modules
             });
         }
 
-        /// <summary>
-        /// 清除指定 <see cref="Packet.Index"/> 下的所有消息记录
-        /// </summary>
         public static void Clear(int idx)
         {
             ProfileModule.Query(idx)
@@ -291,9 +260,6 @@ namespace Messenger.Modules
             });
         }
 
-        /// <summary>
-        /// 关闭数据库
-        /// </summary>
         [Loader(1, LoaderFlags.OnExit)]
         public static void Exit()
         {

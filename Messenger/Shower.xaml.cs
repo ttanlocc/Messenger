@@ -27,7 +27,7 @@ namespace Messenger
             }
             else if (tag == "image")
             {
-                var ofd = new System.Windows.Forms.OpenFileDialog() { Filter = "位图文件|*.bmp;*.png;*.jpg" };
+                var ofd = new System.Windows.Forms.OpenFileDialog() { Filter = "Image file|*.bmp;*.png;*.jpg" };
                 if (ofd.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                     return;
                 try
@@ -36,7 +36,7 @@ namespace Messenger
                 }
                 catch (Exception ex)
                 {
-                    Entrance.ShowError("设置头像失败!", ex);
+                    Entrance.ShowError("Failed to set avatar!", ex);
                     Log.Error(ex);
                 }
             }

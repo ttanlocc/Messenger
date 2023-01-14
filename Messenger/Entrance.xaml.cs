@@ -41,11 +41,6 @@ namespace Messenger
             return;
         }
 
-        /// <summary>
-        /// 显示提示信息 (可以跨线程调用)
-        /// </summary>
-        /// <param name="title">标题</param>
-        /// <param name="content">内容 (调用 <see cref="object.ToString"/> 方法)</param>
         public static void ShowError(string title, Exception content)
         {
             var app = Application.Current;
@@ -57,7 +52,7 @@ namespace Messenger
                     return;
                 win.uiHeadText.Text = title;
 
-                win.uiContentText.Text = content?.ToString() ?? "未提供信息";
+                win.uiContentText.Text = content?.ToString() ?? "No infomation";
                 win.uiMessagePanel.Visibility = Visibility.Visible;
             });
         }
@@ -66,12 +61,10 @@ namespace Messenger
 
         private void _BorderLoaded(object sender, RoutedEventArgs e)
         {
-            // 隐藏窗体控制按钮
             var han = new WindowInteropHelper(this).Handle;
             var now = GetWindowLong(han, GWL_STYLE);
             var res = SetWindowLong(han, GWL_STYLE, now & ~WS_SYSMENU);
 
-            // 若为低版本的 Windows, 设置边框颜色为灰色
             var src = (Border)e.OriginalSource;
             var ver = Environment.OSVersion.Version;
             if (ver.Major < 6 || ver.Major == 6 && ver.Minor < 2)

@@ -13,9 +13,6 @@ using System.Threading.Tasks;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 搜索和管理服务器信息
-    /// </summary>
     internal class HostModule
     {
         private const int _Timeout = 1000;
@@ -74,10 +71,6 @@ namespace Messenger.Modules
             }
         }
 
-        /// <summary>
-        /// 通过 UDP 广播从搜索列表搜索服务器
-        /// </summary>
-        /// <returns></returns>
         public static async Task<Host[]> Refresh()
         {
             var lst = new List<Host>();
@@ -137,9 +130,6 @@ namespace Messenger.Modules
             return lst.ToArray();
         }
 
-        /// <summary>
-        /// 读取服务器搜索列表
-        /// </summary>
         [Loader(4, LoaderFlags.OnLoad)]
         public static void Load()
         {
