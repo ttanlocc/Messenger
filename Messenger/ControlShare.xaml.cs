@@ -5,7 +5,7 @@ using System.Windows.Controls;
 namespace Messenger
 {
     /// <summary>
-    /// ControlShare.xaml 的交互逻辑
+    /// ControlShare.xaml 
     /// </summary>
     public partial class ControlShare : UserControl
     {

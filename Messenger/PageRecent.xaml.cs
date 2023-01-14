@@ -4,9 +4,6 @@ using System.Windows.Controls;
 
 namespace Messenger
 {
-    /// <summary>
-    /// PageRecent.xaml 的交互逻辑
-    /// </summary>
     public partial class PageRecent : Page
     {
         public PageRecent()

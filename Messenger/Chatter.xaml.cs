@@ -59,9 +59,7 @@ namespace Messenger
             uiMessageBox.ScrollIntoLastEx();
         }
 
-        /// <summary>
-        /// 拦截消息通知
-        /// </summary>
+ 
         private void _HistoryReceiving(object sender, LinkEventArgs<Packet> e)
         {
             if (e.Object.Index != _profile.Id)

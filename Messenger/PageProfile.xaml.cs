@@ -8,9 +8,6 @@ using System.Windows.Controls;
 
 namespace Messenger
 {
-    /// <summary>
-    /// ProfilePage.xaml 的交互逻辑
-    /// </summary>
     public partial class PageProfile : Page
     {
         public PageProfile()
@@ -39,9 +36,6 @@ namespace Messenger
                 _ = uiRightFrame.Navigate(new Chatter());
         }
 
-        /// <summary>
-        /// 根据用户昵称和签名提供搜索功能
-        /// </summary>
         private void _TextChanged(object sender, TextChangedEventArgs e)
         {
             if (e.OriginalSource != uiSearchBox)

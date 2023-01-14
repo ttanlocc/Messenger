@@ -13,9 +13,6 @@ namespace Mikodev.Logger
     {
         private const int _MaxQueueLength = 256;
 
-        /// <summary>
-        /// 日志固定前缀 (防止循环记录日志)
-        /// </summary>
         internal static readonly string _prefix = $"[{nameof(Logger)}]";
 
         internal static readonly object s_filelocker = new object();
@@ -124,9 +121,6 @@ namespace Mikodev.Logger
             }
         }
 
-        /// <summary>
-        /// 记录异常 (如果异常为空则不记录)
-        /// </summary>
         public static void Error(Exception err, [CallerMemberName] string name = null, [CallerFilePath] string file = null, [CallerLineNumber] int line = 0)
         {
             if (err == null)
@@ -136,19 +130,16 @@ namespace Mikodev.Logger
             Info(err.ToString(), name, file, line);
         }
 
-        /// <summary>
-        /// 记录自定义消息 (如果异常为空则不记录)
-        /// </summary>
         public static void Info(string message, [CallerMemberName] string name = null, [CallerFilePath] string file = null, [CallerLineNumber] int line = 0)
         {
             if (message == null)
                 return;
             var lbr = Environment.NewLine;
 
-            var msg = $"[时间: {DateTime.Now:u}]" + lbr +
-                $"[文件: {file}]" + lbr +
-                $"[行号: {line}]" + lbr +
-                $"[方法: {name}]" + lbr +
+            var msg = $"[Time: {DateTime.Now:u}]" + lbr +
+                $"[Document: {file}]" + lbr +
+                $"[Linenumber: {line}]" + lbr +
+                $"[Method: {name}]" + lbr +
                 $"{message}" + lbr + lbr;
 
             Trace.Write(_prefix + Environment.NewLine + msg);
@@ -166,8 +157,8 @@ namespace Mikodev.Logger
                 return;
 
             var lbr = Environment.NewLine;
-            var msg = $"[时间: {DateTime.Now:u}]" + lbr +
-                $"[来源: {nameof(Trace)}]" + lbr +
+            var msg = $"[Time: {DateTime.Now:u}]" + lbr +
+                $"[Source: {nameof(Trace)}]" + lbr +
                 $"{txt}" + lbr + lbr;
             _Enqueue(msg);
         }

@@ -31,7 +31,6 @@
                     <StackPanel Name="uiTogglePanel" Grid.Column="1"
                                 Orientation="Horizontal" VerticalAlignment="Center"
                                 Button.Click ="_Click">
-                        <!--控制按钮-->
                         <Button Name="PlayButton" Margin="8,0" Tag="play" ToolTip="Start transfer"
                                 Content="{DynamicResource PathLitePlay}"
                                 Background="Transparent" BorderThickness="0" Padding="0" />
@@ -60,7 +59,7 @@
                     <Setter TargetName="uiPrefixText" Property="Text" Value="[Document]" />
                     <Setter TargetName="uiInfoText" Property="Text">
                         <Setter.Value>
-                            <MultiBinding StringFormat="用户: {0}, {1} / {2}, {3:0.00}%, {4}/s, 状态: {5}, 剩余: {6:c}">
+                            <MultiBinding StringFormat="User: {0}, {1} / {2}, {3:0.00}%, {4}/s, Status: {5}, Remaining: {6:c}">
                                 <Binding Path="Profile.Name" Mode="OneWay" />
                                 <Binding Path="Position" Mode="OneWay" Converter="{StaticResource LengthUnitConverter}" />
                                 <Binding Path="Length" Mode="OneWay" Converter="{StaticResource LengthUnitConverter}" />
@@ -76,7 +75,7 @@
                     <Setter TargetName="uiPrefixText" Property="Text" Value="[Folder]" />
                     <Setter TargetName="uiInfoText" Property="Text">
                         <Setter.Value>
-                            <MultiBinding StringFormat="用户: {0}, {1}, {2}/s, 状态: {3}">
+                            <MultiBinding StringFormat="User: {0}, {1}, {2}/s, Status: {3}">
                                 <Binding Path="Profile.Name" Mode="OneWay" />
                                 <Binding Path="Position" Mode="OneWay" Converter="{StaticResource LengthUnitConverter}" />
                                 <Binding Path="Speed" Mode="OneWay" Converter="{StaticResource LengthUnitConverter}" />
@@ -89,7 +88,7 @@
                 <MultiDataTrigger>
                     <MultiDataTrigger.Conditions>
                         <Condition Binding="{Binding Path=IsBatch}" Value="True" />
-                        <Condition Binding="{Binding Path=Status}" Value="运行" />
+                        <Condition Binding="{Binding Path=Status}" Value="Execute" />
                     </MultiDataTrigger.Conditions>
                     <MultiDataTrigger.Setters>
                         <Setter TargetName="uiProgress" Property="IsIndeterminate" Value="True" />

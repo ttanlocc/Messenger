@@ -9,9 +9,6 @@ using System.Windows;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 管理共享并提供界面绑定功能
-    /// </summary>
     internal class ShareModule : INotifyPropertyChanging, INotifyPropertyChanged
     {
         private const string _KeyPath = "share-save-path";
@@ -96,9 +93,6 @@ namespace Messenger.Modules
 
         public static BindingList<ShareReceiver> PendingList => s_ins._pendingList;
 
-        /// <summary>
-        /// 注册一个接收器并添加到待办列表 (在其启动或关闭后自动从待办列表中移除)
-        /// </summary>
         public static void Register(ShareReceiver receiver)
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -121,9 +115,6 @@ namespace Messenger.Modules
             obj.PropertyChanged -= _RemovePending;
         }
 
-        /// <summary>
-        /// 取消所有共享任务
-        /// </summary>
         public static void Shutdown()
         {
             Application.Current.Dispatcher.Invoke(() =>
@@ -135,9 +126,6 @@ namespace Messenger.Modules
             });
         }
 
-        /// <summary>
-        /// 移除所有 <see cref="IFinal.IsFinal"/> 值为真的项目, 返回被移除的项目
-        /// </summary>
         public static List<IFinal> Remove()
         {
             var lst = new List<IFinal>();
@@ -166,11 +154,6 @@ namespace Messenger.Modules
 
         #region Other methods
 
-        /// <summary>
-        /// 检查文件名在指定目录下是否可用 如果冲突则添加随机后缀并重试 再次失败则抛出异常
-        /// </summary>
-        /// <param name="name">File name</param>
-        /// <exception cref="IOException"></exception>
         public static FileInfo AvailableFile(string name)
         {
             var dir = new DirectoryInfo(s_ins._savepath);
@@ -189,11 +172,6 @@ namespace Messenger.Modules
             return res;
         }
 
-        /// <summary>
-        /// 检查目录名在指定目录下是否可用 如果冲突则添加随机后缀并重试 再次失败则抛出异常
-        /// </summary>
-        /// <param name="name">目录名</param>
-        /// <exception cref="IOException"></exception>
         public static DirectoryInfo AvailableDirectory(string name)
         {
             var dir = new DirectoryInfo(s_ins._savepath);

@@ -19,9 +19,6 @@ namespace Messenger.Models
             _backlog += share._Accept;
         }
 
-        /// <summary>
-        /// 通知发送者并返回关联任务
-        /// </summary>
         public static async Task Notify(int id, Guid key, Socket socket)
         {
             var lst = _backlog?.GetInvocationList();
@@ -61,24 +58,12 @@ namespace Messenger.Models
 
         #endregion
 
-        /// <summary>
-        /// 是否为批量操作 (目录: 真, 文件: 假)
-        /// </summary>
         public bool IsBatch => _info is DirectoryInfo;
 
-        /// <summary>
-        /// 文件名或目录名
-        /// </summary>
         public string Name => _name;
 
-        /// <summary>
-        /// 完整路径
-        /// </summary>
         public string Path => _path;
 
-        /// <summary>
-        /// 文件长度
-        /// </summary>
         public long Length => _length;
 
         public BindingList<ShareWorker> WorkerList => _list;

@@ -14,9 +14,6 @@ using System.Windows.Interop;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 维持客户端与服务器的连接, 并负责引发事件
-    /// </summary>
     internal class LinkModule
     {
         private LinkModule() { }
@@ -31,9 +28,6 @@ namespace Messenger.Modules
 
         public static bool IsRunning => s_ins._client?.IsRunning ?? false;
 
-        /// <summary>
-        /// 启动连接 (与 <see cref="Shutdown"/> 方法为非完全线程安全的关系, 不过两个方法不可能同时调用)
-        /// </summary>
         public static async Task<Task> Start(int id, IPEndPoint endpoint)
         {
             var clt = await LinkClient.Connect(id, endpoint, _RequestHandler);
@@ -45,7 +39,6 @@ namespace Messenger.Modules
                 clt.Received -= _OnReceived;
                 clt.Disposed -= _OnDisposed;
 
-                // 置空
                 lock (s_ins._locker)
                     s_ins._client = null;
                 var obj = args.Object;
@@ -111,9 +104,6 @@ namespace Messenger.Modules
 
         public static void Enqueue(byte[] buffer) => s_ins._client?.Enqueue(buffer);
 
-        /// <summary>
-        /// 获取与连接关联的 NAT 内部端点和外部端点 (二者相同时只返回一个, 连接无效时返回空列表, 始终不会返回 null)
-        /// </summary>
         public static List<IPEndPoint> GetEndPoints()
         {
             var lst = new List<IPEndPoint>();

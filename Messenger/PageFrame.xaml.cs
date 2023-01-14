@@ -7,9 +7,6 @@ using System.Windows.Controls;
 
 namespace Messenger
 {
-    /// <summary>
-    /// ProfileFrame.xaml 的交互逻辑
-    /// </summary>
     public partial class PageFrame : Page
     {
         private readonly PageProfile _profPage = new PageProfile();
@@ -41,9 +38,6 @@ namespace Messenger
             HistoryModule.Receive -= _HistoryReceiving;
         }
 
-        /// <summary>
-        /// 如果 Frame 不为用户列表 则消息提示应当存在
-        /// </summary>
         private void _HistoryReceiving(object sender, LinkEventArgs<Packet> e)
         {
             if (uiFrame.Content == _profPage)
@@ -71,7 +65,6 @@ namespace Messenger
             if (ctx != null)
                 cur.Content = ctx;
 
-            // Context 属性会延迟生效, 因此只能与 ctx 比较
             if (ctx == _profPage)
             {
                 var sco = ProfileModule.Inscope;
@@ -91,7 +84,6 @@ namespace Messenger
             if (uiNavigateGrid.Width > uiNavigateGrid.MinWidth)
                 uiSwitchRadio.IsChecked = false;
 
-            // 清空导航历史
             while (NavigationService.CanGoBack)
                 _ = NavigationService.RemoveBackEntry();
 

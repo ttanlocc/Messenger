@@ -5,9 +5,6 @@ using System.Runtime.CompilerServices;
 
 namespace Messenger.Models
 {
-    /// <summary>
-    /// 用户信息
-    /// </summary>
     public class Profile : INotifyPropertyChanging, INotifyPropertyChanged
     {
         public static event PropertyChangedEventHandler InstancePropertyChanged;
@@ -53,9 +50,6 @@ namespace Messenger.Models
 
         public int Id => _id;
 
-        /// <summary>
-        /// 未读消息计数
-        /// </summary>
         public int Hint
         {
             get => _hint;
@@ -80,9 +74,6 @@ namespace Messenger.Models
             set => OnPropertyChange(ref _logo, value);
         }
 
-        /// <summary>
-        /// 获取关联的消息记录列表
-        /// </summary>
         public BindingList<Packet> GetMessages()
         {
             var lst = _messages;
@@ -93,10 +84,6 @@ namespace Messenger.Models
             return lst;
         }
 
-        /// <summary>
-        /// 获取关联的消息记录列表 (如果尚未创建, 返回 null)
-        /// </summary>
-        /// <returns></returns>
         public BindingList<Packet> GetMessagesOrDefault() => _messages;
 
         public Profile CopyFrom(Profile profile)

@@ -6,7 +6,7 @@ using System.Windows.Controls;
 namespace Messenger
 {
     /// <summary>
-    /// ControlShareWorker.xaml 的交互逻辑
+    /// ControlShareWorker.xaml
     /// </summary>
     public partial class ControlShareWorker : UserControl
     {

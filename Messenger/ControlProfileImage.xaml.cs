@@ -3,7 +3,7 @@
 namespace Messenger
 {
     /// <summary>
-    /// ControlProfileImage.xaml 的交互逻辑
+    /// ControlProfileImage.xaml 
     /// </summary>
     public partial class ControlProfileImage : UserControl
     {

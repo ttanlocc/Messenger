@@ -17,9 +17,6 @@ namespace Messenger.Extensions
     {
         internal static readonly IReadOnlyList<string> s_units = new[] { string.Empty, "K", "M", "G", "T", "P", "E" };
 
-        /// <summary>
-        /// 分离主机字符串 (如 "some-host:7500" 分离成 "some-host" 和 7500)
-        /// </summary>
         internal static bool ToHostEx(string str, out string host, out int port)
         {
             if (string.IsNullOrWhiteSpace(str))
@@ -40,9 +37,6 @@ namespace Messenger.Extensions
             return false;
         }
 
-        /// <summary>
-        /// 数据大小换算 (保留 2 位小数)
-        /// </summary>
         internal static string ToUnitEx(long length)
         {
             if (ToUnitEx(length, out var len, out var pos))
@@ -50,12 +44,6 @@ namespace Messenger.Extensions
             else return string.Empty;
         }
 
-        /// <summary>
-        /// 数据大小换算 以 1024 为单位切分大小
-        /// </summary>
-        /// <param name="length">数据大小</param>
-        /// <param name="len">长度</param>
-        /// <param name="pos">单位</param>
         internal static bool ToUnitEx(long length, out double len, out string pos)
         {
             if (length < 0)
@@ -79,12 +67,6 @@ namespace Messenger.Extensions
             return false;
         }
 
-        /// <summary>
-        /// 尝试将一个字符串转换成 <see cref="IPEndPoint"/>
-        /// </summary>
-        /// <exception cref="ArgumentNullException"/>
-        /// <exception cref="FormatException"/>
-        /// <exception cref="OverflowException"/>
         internal static IPEndPoint ToEndPointEx(this string str)
         {
             if (str == null)
@@ -95,14 +77,6 @@ namespace Messenger.Extensions
             return new IPEndPoint(IPAddress.Parse(add.Trim()), int.Parse(pot.Trim()));
         }
 
-        /// <summary>
-        /// 查找具有指定属性的方法
-        /// </summary>
-        /// <typeparam name="T">返回类型</typeparam>
-        /// <param name="assembly">程序集</param>
-        /// <param name="attribute">属性类型</param>
-        /// <param name="basic">目标类型基类 (可为 null)</param>
-        /// <param name="func">输出对象生成函数</param>
         internal static IEnumerable<T> FindAttribute<T>(Assembly assembly, Type attribute, Type basic, Func<Attribute, MethodInfo, Type, T> func) =>
             (basic == null
                 ? assembly.GetTypes()
@@ -112,14 +86,6 @@ namespace Messenger.Extensions
                 .Select(f => func.Invoke(f.GetCustomAttributes(attribute).First(), f, t))
             ).SelectMany(i => i);
 
-        /// <summary>
-        /// 接收文件到指定路径 (若文件已存在则抛出异常)
-        /// </summary>
-        /// <param name="socket">待读取套接字</param>
-        /// <param name="path">目标文件路径</param>
-        /// <param name="length">目标文件长度</param>
-        /// <param name="slice">每当数据写入时, 通知本次写入的数据长度</param>
-        /// <param name="token">取消标志</param>
         internal static async Task ReceiveFileEx(this Socket socket, string path, long length, Action<long> slice, CancellationToken token)
         {
             if (length < 0)
@@ -147,14 +113,6 @@ namespace Messenger.Extensions
             }
         }
 
-        /// <summary>
-        /// 发送指定路径的文件 (若文件长度不匹配则抛出异常)
-        /// </summary>
-        /// <param name="socket">待写入套接字</param>
-        /// <param name="path">源文件路径</param>
-        /// <param name="length">源文件长度</param>
-        /// <param name="slice">每当数据发出时, 通知本次发出的数据长度</param>
-        /// <param name="token">取消标志</param>
         internal static async Task SendFileEx(this Socket socket, string path, long length, Action<long> slice, CancellationToken token)
         {
             var fst = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -183,7 +141,6 @@ namespace Messenger.Extensions
         {
             async Task _SendDir(DirectoryInfo subdir, IEnumerable<string> relative)
             {
-                // 发送文件夹相对路径
                 var cur = LinksHelper.Generator.Encode(new
                 {
                     type = "dir",
@@ -217,7 +174,6 @@ namespace Messenger.Extensions
 
         internal static async Task ReceiveDirectoryAsyncEx(this Socket _socket, string path, Action<long> slice, CancellationToken token)
         {
-            // 当前目录
             var cur = path;
 
             while (true)
@@ -228,7 +184,6 @@ namespace Messenger.Extensions
 
                 if (typ == "dir")
                 {
-                    // 重新拼接路径
                     var dir = rea["path"].As<string[]>();
                     cur = Path.Combine(new[] { path }.Concat(dir).ToArray());
                     _ = Directory.CreateDirectory(cur);
@@ -249,9 +204,6 @@ namespace Messenger.Extensions
             }
         }
 
-        /// <summary>
-        /// 移除源列表中所有符合条件的项目, 返回被移除的项目
-        /// </summary>
         public static List<T> RemoveEx<T>(this IList<T> lst, Func<T, bool> fun)
         {
             var idx = 0;
@@ -270,9 +222,6 @@ namespace Messenger.Extensions
             return res;
         }
 
-        /// <summary>
-        /// [常用代码段] 锁定 <paramref name="locker"/> 以访问 <paramref name="location"/>, 若值不为 null 则返回 true, 否则返回 false
-        /// </summary>
         public static bool Lock<TE, TR>(TE locker, ref TR location, out TR value) where TE : class where TR : class
         {
             lock (locker)
@@ -289,9 +238,6 @@ namespace Messenger.Extensions
             }
         }
 
-        /// <summary>
-        /// [常用代码段] 锁定 <paramref name="locker"/> 以调用 <paramref name="func"/>, 常用于具有匿名类型返回值的函数
-        /// </summary>
         public static TR Lock<TE, TR>(TE locker, Func<TR> func) where TE : class
         {
             lock (locker)
@@ -300,9 +246,6 @@ namespace Messenger.Extensions
             }
         }
 
-        /// <summary>
-        /// 插入文字到当前光标位置 (或替换当前选区文字)
-        /// </summary>
         public static void InsertEx(this TextBox textbox, string text)
         {
             if (textbox == null)
@@ -320,9 +263,6 @@ namespace Messenger.Extensions
             textbox.SelectionLength = 0;
         }
 
-        /// <summary>
-        /// 滚动到列表末尾
-        /// </summary>
         public static void ScrollIntoLastEx(this ListBox listbox)
         {
             if (listbox == null)
@@ -337,9 +277,6 @@ namespace Messenger.Extensions
             listbox.ScrollIntoView(itm);
         }
 
-        /// <summary>
-        /// 将元素添加到列表的末尾, 如果列表长度超出限制, 则从开始移除多余的部分
-        /// </summary>
         public static void AddLimitEx<T>(this IList<T> list, T value, int max)
         {
             if (list is null)
@@ -354,9 +291,6 @@ namespace Messenger.Extensions
             return;
         }
 
-        /// <summary>
-        /// 固定字符串的哈希算法
-        /// </summary>
         public static int GetInvariantHashCode(string text)
         {
             if (text is null)

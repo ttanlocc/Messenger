@@ -9,9 +9,6 @@ using System.Windows.Controls;
 
 namespace Messenger
 {
-    /// <summary>
-    /// Interaction logic for Transform.xaml
-    /// </summary>
     public partial class PageShare : Page
     {
         public PageShare()

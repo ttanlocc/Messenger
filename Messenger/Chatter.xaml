@@ -15,7 +15,6 @@
         <tool:StringEmptyConverter x:Key="StringEmptyConverter" />
         <tool:ObjectTypeConverter x:Key="ObjectTypeConverter" />
 
-        <!--消息模板-->
         <ControlTemplate x:Key="MessageTemplate">
             <Grid Margin="0,6" Width="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ScrollContentPresenter}, Path=ActualWidth}">
                 <Grid.ColumnDefinitions>
