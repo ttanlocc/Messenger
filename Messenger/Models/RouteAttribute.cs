@@ -2,9 +2,6 @@
 
 namespace Messenger.Models
 {
-    /// <summary>
-    /// 标注有此属性的函数将在收到消息时自动匹配路径执行
-    /// </summary>
     [AttributeUsage(AttributeTargets.Method)]
     public class RouteAttribute : Attribute
     {

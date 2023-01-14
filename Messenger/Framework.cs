@@ -27,7 +27,6 @@ namespace Messenger
 
         private void _Start()
         {
-            // 利用反射运行模块
             var lst = Extension.FindAttribute(
                 typeof(LoaderAttribute).Assembly,
                 typeof(LoaderAttribute), null,

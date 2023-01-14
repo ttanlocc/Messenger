@@ -22,14 +22,14 @@
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Column="0" Grid.Row="0" Margin="5,0" FontSize="14" Foreground="#FFA0A0A0"  HorizontalAlignment="Left">
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="名称: {0}">
+                            <MultiBinding StringFormat="Server: {0}">
                                 <Binding Path="Name" />
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="1" Margin="5,0" Foreground="#FF808080" HorizontalAlignment="Left">
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="地址: {0}:{1}">
+                            <MultiBinding StringFormat="Address: {0}:{1}">
                                 <Binding Path="Address" />
                                 <Binding Path="Port" />
                             </MultiBinding>
@@ -121,9 +121,9 @@
                 </ListBox>
             </Grid>
             <StackPanel Margin="5,10" Orientation="Horizontal" HorizontalAlignment="Right" Button.Click="_Click">
-                <Button x:Name="uiRefreshButton" Margin="5,0" Width="80" Visibility="Collapsed">刷新</Button>
-                <Button x:Name="uiBrowserButton" Margin="5,0" Width="80">服务器</Button>
-                <Button x:Name="uiConnectButton" Margin="5,0" Width="80">连接</Button>
+                <Button x:Name="uiRefreshButton" Margin="5,0" Width="80" Visibility="Collapsed">Refresh</Button>
+                <Button x:Name="uiBrowserButton" Margin="5,0" Width="80">Browser</Button>
+                <Button x:Name="uiConnectButton" Margin="5,0" Width="80">Connect</Button>
             </StackPanel>
         </StackPanel>
     </Grid>

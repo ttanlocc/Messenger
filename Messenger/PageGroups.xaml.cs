@@ -5,9 +5,6 @@ using System.Windows.Controls;
 
 namespace Messenger
 {
-    /// <summary>
-    /// PageGroups.xaml 的交互逻辑
-    /// </summary>
     public partial class PageGroups : Page
     {
         public PageGroups()
@@ -34,7 +31,7 @@ namespace Messenger
             else if (tag == "apply")
             {
                 if (string.Equals(uiEditBox.Text, ProfileModule.GroupLabels) == false && ProfileModule.SetGroupLabels(uiEditBox.Text) == false)
-                    Entrance.ShowError($"最多允许 {Links.GroupLabelLimit} 个群组标签", null);
+                    Entrance.ShowError($"Maximum allowed {Links.GroupLabelLimit} group tags", null);
                 else
                     uiEditGrid.Visibility = Visibility.Collapsed;
             }

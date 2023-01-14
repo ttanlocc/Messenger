@@ -40,19 +40,19 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Margin="10" FontSize="28"
-                           Foreground="#FFC0C0C0" FontWeight="Light" Text="传输列表">
+                           Foreground="#FFC0C0C0" FontWeight="Light" Text="Document">
                 </TextBlock>
                 <ScrollViewer Grid.Row="1" Template="{DynamicResource ThinScrollViewer}" Focusable="False">
                     <StackPanel>
                         <TextBlock Name="uiShareText" Margin="10,5"
                                    HorizontalAlignment="Left"
-                                   FontSize="18" Foreground="#FFA0A0A0" Text="发送的文件">
+                                   FontSize="18" Foreground="#FFA0A0A0" Text="File has sent">
                         </TextBlock>
                         <ItemsControl ItemTemplate="{DynamicResource ShareTemplate}"
                                       ItemsSource="{x:Static module:ShareModule.ShareList}" />
                         <TextBlock Name="uiReceiveText" Margin="10,5"
                                    HorizontalAlignment="Left"
-                                   FontSize="18" Foreground="#FFA0A0A0" Text="接收的文件">
+                                   FontSize="18" Foreground="#FFA0A0A0" Text="File has sent">
                         </TextBlock>
                         <ItemsControl ItemTemplate="{DynamicResource ReceiverTemplate}"
                                       ItemsSource="{x:Static module:ShareModule.ReceiverList}" />
@@ -60,10 +60,10 @@
                 </ScrollViewer>
                 <Border Grid.Row="2" Background="#FF202020" Height="1" />
                 <StackPanel Grid.Row="3" Margin="10" Orientation="Horizontal" HorizontalAlignment="Left" SnapsToDevicePixels="True" Button.Click="_Click">
-                    <Button Tag="stop" Content="{DynamicResource PathStop}" ToolTip="全部停止" Padding="0" Background="Transparent" BorderThickness="0" />
-                    <Button Tag="clean" Margin="10,0" Content="{DynamicResource PathDelete}" ToolTip="清理列表" Padding="0" Background="Transparent" BorderThickness="0" />
-                    <Button Tag="open" Content="{DynamicResource PathView}" ToolTip="打开保存文件夹" Padding="0" Background="Transparent" BorderThickness="0" />
-                    <Button Tag="change" Margin="10,0" Content="{DynamicResource PathBrowser}" ToolTip="更改保存文件夹" Padding="0" Background="Transparent" BorderThickness="0" />
+                    <Button Tag="stop" Content="{DynamicResource PathStop}" ToolTip="Stop all" Padding="0" Background="Transparent" BorderThickness="0" />
+                    <Button Tag="clean" Margin="10,0" Content="{DynamicResource PathDelete}" ToolTip="Cleanup list" Padding="0" Background="Transparent" BorderThickness="0" />
+                    <Button Tag="open" Content="{DynamicResource PathView}" ToolTip="Open save folder" Padding="0" Background="Transparent" BorderThickness="0" />
+                    <Button Tag="change" Margin="10,0" Content="{DynamicResource PathBrowser}" ToolTip="Change save folder" Padding="0" Background="Transparent" BorderThickness="0" />
                 </StackPanel>
             </Grid>
             <ControlTemplate.Triggers>

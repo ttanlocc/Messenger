@@ -41,9 +41,9 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Margin="0,5" FontSize="16" FontWeight="Bold" Foreground="#C0C0C0" Text="搜索" />
+                    <TextBlock Grid.Row="0" Margin="0,5" FontSize="16" FontWeight="Bold" Foreground="#C0C0C0" Text="Result" />
                     <TextBlock Grid.Row="1" Margin="0,5" FontSize="12" Foreground="#C0C0C0"
-                               Text="{Binding ElementName=uiSearchBox, Path=Text, StringFormat=含有 {0} 的结果}">
+                               Text="{Binding ElementName=uiSearchBox, Path=Text, StringFormat= Result match {0}}">
                     </TextBlock>
                 </Grid>
                 <ListBox x:Name="uiProfileList" Grid.Row="1"

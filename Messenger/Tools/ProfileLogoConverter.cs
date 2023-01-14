@@ -5,9 +5,6 @@ using System.Windows.Data;
 
 namespace Messenger.Tools
 {
-    /// <summary>
-    /// 为没有头像的用户生成字符 Logo
-    /// </summary>
     internal class ProfileLogoConverter : IValueConverter
     {
         private const int _limit = 3;

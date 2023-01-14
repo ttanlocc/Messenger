@@ -9,9 +9,6 @@ using System.Linq.Expressions;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 处理消息, 并分发给各个消息处理函数
-    /// </summary>
     internal class RouteModule
     {
         private static readonly RouteModule s_ins = new RouteModule();
@@ -22,8 +19,6 @@ namespace Messenger.Modules
 
         private void _Load()
         {
-            /* 利用反射识别所有控制器
-             * 同时构建表达式以便提升运行速度 */
             var fun = typeof(LinkExtension).GetMethods().First(r => r.Name == nameof(LinkExtension.LoadValue));
             var lst = Extension.FindAttribute(
                 typeof(RouteAttribute).Assembly, typeof(RouteAttribute),

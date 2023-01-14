@@ -10,7 +10,6 @@ namespace Messenger.Tools
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // 将像素尺寸转换到逻辑尺寸 (用于在高 DPI 环境以像素为单位进行操作)
             if (value is Visual vis && targetType == typeof(Thickness) && parameter is Thickness mar)
             {
                 var win = PresentationSource.FromVisual(vis);

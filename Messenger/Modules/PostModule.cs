@@ -54,9 +54,6 @@ namespace Messenger.Modules
             // you don't have to notice yourself in history module
         }
 
-        /// <summary>
-        /// 向指定用户发送本机用户信息
-        /// </summary>
         public static void UserProfile(int dst)
         {
             var pro = ProfileModule.Current;
@@ -87,9 +84,6 @@ namespace Messenger.Modules
             LinkModule.Enqueue(buf);
         }
 
-        /// <summary>
-        /// 发送请求监听的用户组
-        /// </summary>
         public static void UserGroups()
         {
             var buf = LinksHelper.Generator.Encode(new
@@ -102,9 +96,6 @@ namespace Messenger.Modules
             LinkModule.Enqueue(buf);
         }
 
-        /// <summary>
-        /// 发送文件信息
-        /// </summary>
         public static void File(int dst, string filepath)
         {
             var sha = new Share(new FileInfo(filepath));

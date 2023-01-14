@@ -4,23 +4,14 @@ using Mikodev.Network;
 
 namespace Messenger.Controllers
 {
-    /// <summary>
-    /// 处理用户信息
-    /// </summary>
     public class ProfileController : LinkPacket
     {
-        /// <summary>
-        /// 向发送者返回本机的用户信息
-        /// </summary>
         [Route("user.request")]
         public void Request()
         {
             PostModule.UserProfile(Source);
         }
 
-        /// <summary>
-        /// 处理传入的用户信息
-        /// </summary>
         [Route("user.profile")]
         public void Profile()
         {
@@ -37,9 +28,6 @@ namespace Messenger.Controllers
             ProfileModule.Insert(pro);
         }
 
-        /// <summary>
-        /// 处理服务器返回的用户 Id 列表
-        /// </summary>
         [Route("user.list")]
         public void List()
         {

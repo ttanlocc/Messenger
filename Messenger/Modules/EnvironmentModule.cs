@@ -13,9 +13,6 @@ using static Messenger.Extensions.Extension;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 管理用户设置
-    /// </summary>
     internal class EnvironmentModule
     {
         private const int _NoticeDelay = 1000;
@@ -87,9 +84,6 @@ namespace Messenger.Modules
             s_ins._Load(doc);
         }
 
-        /// <summary>
-        /// 保存配置并忽略异常
-        /// </summary>
         private bool _Save(string path)
         {
             var lst = Lock(_locker, () => _settings.ToList());

@@ -11,9 +11,6 @@ using System.Windows;
 
 namespace Messenger.Modules
 {
-    /// <summary>
-    /// 管理用户信息
-    /// </summary>
     internal class ProfileModule : INotifyPropertyChanging, INotifyPropertyChanged
     {
         private const string _KeyId = "profile-id";
@@ -97,9 +94,6 @@ namespace Messenger.Modules
             _recent.ListChanged += (s, e) => _Changed();
         }
 
-        /// <summary>
-        /// 重新计算未读消息数量
-        /// </summary>
         private void _Changed()
         {
             var cli = _client.Sum(r => r.Hint);
@@ -133,9 +127,6 @@ namespace Messenger.Modules
             Application.Current.Dispatcher.Invoke(() => clt.Clear());
         }
 
-        /// <summary>
-        /// 添加或更新用户信息 (添加返回真, 更新返回假)
-        /// </summary>
         public static void Insert(Profile profile)
         {
             var clt = s_ins._client;
@@ -149,11 +140,6 @@ namespace Messenger.Modules
             });
         }
 
-        /// <summary>
-        /// 根据编号查找用户信息
-        /// </summary>
-        /// <param name="id">编号</param>
-        /// <param name="create">指定编号不存在时创建对象</param>
         public static Profile Query(int id, bool create = false)
         {
             var ins = s_ins;
@@ -185,10 +171,6 @@ namespace Messenger.Modules
             return pro;
         }
 
-        /// <summary>
-        /// 移除所有 Id 不在给定集合的项目 并把含有未读消息的项目添加到最近列表
-        /// </summary>
-        /// <param name="ids">Id 集合</param>
         public static List<Profile> Remove(IEnumerable<int> ids)
         {
             var clt = s_ins._client;
@@ -203,9 +185,6 @@ namespace Messenger.Modules
             return lst;
         }
 
-        /// <summary>
-        /// 设置组标签 不区分大小写 以空格分开 超出个数限制返回 false
-        /// </summary>
         public static bool SetGroupLabels(string args)
         {
             var kvp = from k in
@@ -246,9 +225,6 @@ namespace Messenger.Modules
             return true;
         }
 
-        /// <summary>
-        /// 更新头像 (在主线程上操作, 需要捕捉异常)
-        /// </summary>
         public static void SetImage(string path)
         {
             var buf = CacheModule.ImageSquare(path);
@@ -277,9 +253,6 @@ namespace Messenger.Modules
             EnvironmentModule.Update(_KeyId, id.ToString());
         }
 
-        /// <summary>
-        /// 设置当前联系人
-        /// </summary>
         public static void SetInscope(Profile profile)
         {
             if (profile == null)
@@ -301,9 +274,6 @@ namespace Messenger.Modules
             s_ins._inscope = null;
         }
 
-        /// <summary>
-        /// 添加联系人到最近列表
-        /// </summary>
         public static void SetRecent(Profile profile)
         {
             var rec = s_ins._recent;
@@ -313,7 +283,6 @@ namespace Messenger.Modules
                 {
                     if (ReferenceEquals(rec[i], profile))
                         return;
-                    // 移除值相同但引用不同的项目
                     rec.RemoveAt(i);
                     break;
                 }

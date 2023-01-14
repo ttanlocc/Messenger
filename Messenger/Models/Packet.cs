@@ -3,9 +3,6 @@ using System;
 
 namespace Messenger.Models
 {
-    /// <summary>
-    /// 消息记录
-    /// </summary>
     public class Packet
     {
         private readonly string _key;
@@ -54,39 +51,18 @@ namespace Messenger.Models
 
         public string Key => _key;
 
-        /// <summary>
-        /// 分组索引
-        /// </summary>
         public int Index => _index;
 
-        /// <summary>
-        /// 消息时间
-        /// </summary>
         public DateTime DateTime => _timestamp;
 
-        /// <summary>
-        /// 收信人编号
-        /// </summary>
         public int Target => _target;
 
-        /// <summary>
-        /// 发信人编号
-        /// </summary>
         public int Source => _source;
 
-        /// <summary>
-        /// 消息类型
-        /// </summary>
         public string Path => _path;
 
-        /// <summary>
-        /// 底层数据 (怎么解读取决于 <see cref="Path"/>)
-        /// </summary>
         public object Object => _value;
 
-        /// <summary>
-        /// 发送者信息
-        /// </summary>
         public Profile Profile
         {
             get
@@ -97,9 +73,6 @@ namespace Messenger.Models
             }
         }
 
-        /// <summary>
-        /// 消息文本
-        /// </summary>
         public string MessageText
         {
             get
@@ -110,9 +83,6 @@ namespace Messenger.Models
             }
         }
 
-        /// <summary>
-        /// 图像路径
-        /// </summary>
         public string MessageImage
         {
             get
@@ -123,9 +93,6 @@ namespace Messenger.Models
             }
         }
 
-        /// <summary>
-        /// 提醒
-        /// </summary>
         public string MessageNotice
         {
             get
